@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="center">
+        <div class="logo">
+          <h1><a href="#">Rick & Morty</a></h1>
+        </div>
+        <div class="navbar">
+          <nav>
+            <ul>
+              <li>
+                <a href="#" class="activeLink">Characters</a>
+              </li>
+              <li>
+                <a href="#">Episodes</a>
+              </li>
+              <li>
+                <span class="material-icons">search</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="search">
+      <div class="center">
+        <div class="searchInput">
+          <input type="text" name="s" autofocus placeholder="search character" />
+          <button type="button">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="bannerImage">
+      <div class="center">
+        <img src="./assets/img/banner.png" alt="" draggable="false" />
+      </div>
+    </div>
+    <main>
+      <div class="container">
+        <div class="rows" id="characters">
+          <!-- cards -->
+        </div>
+      </div>
+    </main>
+    <!-- pagination -->
+    <div class="container">
+      <div class="rows">
+        <ul class="pagination" id="paginationID">
+          <li>
+            <a href="#" class="material-icons">arrow_back</a>
+          </li>
+          <li>
+            <a class="activeLinkPagination" href="#"><span>1</span></a>
+          </li>
+          <li>
+            <a href="#"><span>2</span></a>
+          </li>
+          <li>
+            <a href="#"><span>3</span></a>
+          </li>
+          <li>
+            <a href="#"><span>4</span></a>
+          </li>
+          <li>
+            <a href="#"><span>5</span></a>
+          </li>
+          <li><a href="#" class="material-icons">more_horiz</a></li>
+          <li>
+            <a href="#"><span>45</span></a>
+          </li>
+          <li>
+            <a href="#" class="material-icons">arrow_forward</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- pagination end -->
+
+    <footer>
+      <div class="container">
+        <h3>made with <span class="material-icons">favorite</span> <a href="https://github.com/melihsahtulek">melihsahtulek</a></h3>
+      </div>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
