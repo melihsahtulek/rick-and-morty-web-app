@@ -23,7 +23,7 @@
               <li>
                 <a href="#">Episodes</a>
               </li>
-              <li>
+              <li id="searchMenuBtn">
                 <span class="material-icons">search</span>
               </li>
             </ul>
@@ -31,16 +31,54 @@
         </div>
       </div>
     </header>
-    <div class="search">
-      <div class="center">
+
+    <div class="search" data-is-open="false">
+      <div class="center flexColumn" style="position: relative">
         <div class="searchInput">
-          <input type="text" name="s" autofocus placeholder="search character" />
+          <input type="text" name="s" placeholder="search character for name" />
           <button type="button">
             <span class="material-icons">search</span>
           </button>
         </div>
+        <div class="searchResultContainer">
+          <div class="result">
+            <ul>
+              <li>
+                <a href="#" class="searchResultItem">
+                  <div class="left">
+                    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" />
+                  </div>
+                  <div class="right">
+                    <h3>Rick and Morty</h3>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="searchResultItem">
+                  <div class="left">
+                    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" />
+                  </div>
+                  <div class="right">
+                    <h3>Rick and Morty</h3>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="searchResultItem">
+                  <div class="left">
+                    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" />
+                  </div>
+                  <div class="right">
+                    <h3>Rick and Morty</h3>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+
     <div class="bannerImage">
       <img src="./assets/img/banner.png" alt="" draggable="false" />
     </div>

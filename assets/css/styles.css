@@ -37,6 +37,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 a {
@@ -151,8 +158,8 @@ header .navbar nav ul li:last-of-type {
 .search {
   display: flex;
   justify-content: center;
-  padding-top: 10px;
-  /* display: none; */
+  margin: 1rem 0;
+  display: none;
 }
 
 .search .searchInput {
@@ -181,6 +188,59 @@ header .navbar nav ul li:last-of-type {
   width: 50px;
   height: 50px;
   border-radius: 3px;
+  cursor: pointer;
+}
+
+.searchResultContainer {
+  height: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50px;
+  margin-top: 0;
+  padding: 10px;
+  overflow: hidden;
+  display: none;
+}
+
+.searchResultContainer .result {
+  background-color: var(--white);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+
+.searchResultContainer .result ul li .searchResultItem {
+  display: flex;
+  height: 50px;
+}
+
+.searchResultContainer .result ul li .searchResultItem .left {
+  width: 50px;
+  height: 100%;
+}
+
+.searchResultContainer .result ul li .searchResultItem .left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.searchResultContainer .result ul li .searchResultItem .right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.searchResultContainer .result ul li:not(:last-of-type) .searchResultItem .right {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.searchResultContainer .result ul li .searchResultItem .right h3 {
+  color: var(--dark);
+  font-weight: var(--f-w-400);
+  font-size: 1rem;
 }
 
 .bannerImage {
@@ -189,7 +249,7 @@ header .navbar nav ul li:last-of-type {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-bottom: 1rem;
   /* display: none; */
 }
 
@@ -197,8 +257,6 @@ header .navbar nav ul li:last-of-type {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #ddd;
 }
 
 .center {

@@ -109,4 +109,21 @@ window.addEventListener("load", () => {
   };
 
   new Characters().get().then((json) => writeCharacters(json));
+
+  /******************************************************************/
+
+  const searchMenuBtn = document.querySelector("#searchMenuBtn");
+  const searchContainer = document.querySelectorAll(".search")[0];
+  let searchInputIsOpen = false;
+  const s = document.querySelector("input[name=s]");
+  searchMenuBtn.addEventListener("click", () => {
+    searchInputIsOpen = searchContainer.getAttribute("data-is-open") === "false" ? false : true;
+    if (searchInputIsOpen) {
+      searchContainer.setAttribute("data-is-open", "false");
+    } else {
+      searchContainer.setAttribute("data-is-open", "true");
+    }
+    searchContainer.style.display = searchInputIsOpen ? "none" : "flex";
+    s.focus();
+  });
 });
