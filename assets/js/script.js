@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
     if (currentPage <= info.pages - 3) {
       for (let i = start >= 3 ? start - 1 : start; i <= 2 + start; i++) {
         pagination.innerHTML += `
-        <li>
+        <li class="hideForMobile">
           <a href="#" class="${i === currentPage && "currentPageNumber"}" data-page-number=${i}><span>${i}</span></a>
         </li>
         `;
@@ -64,7 +64,7 @@ window.addEventListener("load", () => {
     if (currentPage > info.pages - 3) {
       for (let i = info.pages - 4; i < info.pages; i++) {
         pagination.innerHTML += `
-        <li>
+        <li class="hideForMobile">
           <a href="#" class="${i === currentPage && "currentPageNumber"}" data-page-number=${i}><span>${i}</span></a>
         </li>
         `;
@@ -73,13 +73,13 @@ window.addEventListener("load", () => {
 
     if (currentPage < info.pages - 3) {
       pagination.innerHTML += `
-      <li>
+      <li class="hideForMobile">
         <a href="#"><span class="material-icons">more_horiz</span></a>
       </li>`;
     }
 
     pagination.innerHTML += `
-    <li>
+    <li class="hideForMobile">
       <a href="#" class="${info.pages === currentPage && "currentPageNumber"}" data-page-number=${info.pages}><span>${info.pages}</span></a>
     </li>
     `;
@@ -136,6 +136,7 @@ window.addEventListener("load", () => {
       searchContainer.setAttribute("data-is-open", "true");
     }
     searchContainer.style.display = searchInputIsOpen ? "none" : "flex";
+    document.body.setAttribute("class", "bodyLock");
     s.focus();
 
     s.addEventListener("input", (e) => {
@@ -174,8 +175,10 @@ window.addEventListener("load", () => {
   });
 
   searchResultContainer.addEventListener("click", () => {
-    console.log("sa");
     searchContainer.setAttribute("data-is-open", "false");
     searchContainer.style.display = "none";
+    document.body.removeAttribute("class", "bodyLock");
+    s.value = null;
+    resultUl.innerHTML = null;
   });
 });
