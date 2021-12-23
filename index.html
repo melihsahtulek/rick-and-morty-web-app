@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
-  <body>
+  <body class="bodyLock">
     <header>
       <div class="center">
         <div class="logo">
@@ -33,7 +33,7 @@
     </header>
 
     <div class="search" data-is-open="false">
-      <div class="center flexColumn" style="position: relative">
+      <div class="center flexColumn">
         <div class="searchInput">
           <input type="text" name="s" placeholder="search character for name" />
           <button type="button">
@@ -42,38 +42,7 @@
         </div>
         <div class="searchResultContainer">
           <div class="result">
-            <ul>
-              <li>
-                <a href="#" class="searchResultItem">
-                  <div class="left">
-                    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" />
-                  </div>
-                  <div class="right">
-                    <h3>Rick and Morty</h3>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="searchResultItem">
-                  <div class="left">
-                    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" />
-                  </div>
-                  <div class="right">
-                    <h3>Rick and Morty</h3>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="searchResultItem">
-                  <div class="left">
-                    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" />
-                  </div>
-                  <div class="right">
-                    <h3>Rick and Morty</h3>
-                  </div>
-                </a>
-              </li>
-            </ul>
+            <ul id="resultUl"></ul>
           </div>
         </div>
       </div>

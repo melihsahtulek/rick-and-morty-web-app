@@ -9,6 +9,16 @@ window.addEventListener("load", () => {
       const json = await response.json();
       return json;
     }
+
+    async getDataByFilter(value) {
+      const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${value}`);
+      const json = await response.json();
+      if (json.error) {
+        throw new Error(json.error);
+      } else {
+        return json;
+      }
+    }
   }
 
   const writeCharacters = (json) => {
@@ -115,6 +125,8 @@ window.addEventListener("load", () => {
   const searchMenuBtn = document.querySelector("#searchMenuBtn");
   const searchContainer = document.querySelectorAll(".search")[0];
   let searchInputIsOpen = false;
+  const searchResultContainer = document.querySelectorAll(".searchResultContainer")[0];
+  const resultUl = document.querySelector("#resultUl");
   const s = document.querySelector("input[name=s]");
   searchMenuBtn.addEventListener("click", () => {
     searchInputIsOpen = searchContainer.getAttribute("data-is-open") === "false" ? false : true;
@@ -125,5 +137,45 @@ window.addEventListener("load", () => {
     }
     searchContainer.style.display = searchInputIsOpen ? "none" : "flex";
     s.focus();
+
+    s.addEventListener("input", (e) => {
+      if (s.value.length > 0) {
+        new Characters()
+          .getDataByFilter(s.value)
+          .then((json) => {
+            resultUl.innerHTML = null;
+            let { results } = json;
+            if (results.length > 0) {
+              console.log(results);
+              searchResultContainer.style.display = "block";
+              results.forEach((character) => {
+                resultUl.innerHTML += `
+              <li>
+                <a href="#" class="searchResultItem">
+                  <div class="left">
+                    <img src=${character.image} alt="" />
+                  </div>
+                  <div class="right">
+                    <h3>${character.name}</h3>
+                  </div>
+                </a>
+              </li>
+              `;
+              });
+            }
+          })
+          .catch((error) => {
+            resultUl.innerHTML = `<center><b>${error}</b></center>`;
+          });
+      } else {
+        resultUl.innerHTML = null;
+      }
+    });
+  });
+
+  searchResultContainer.addEventListener("click", () => {
+    console.log("sa");
+    searchContainer.setAttribute("data-is-open", "false");
+    searchContainer.style.display = "none";
   });
 });
